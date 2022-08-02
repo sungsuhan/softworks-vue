@@ -1,45 +1,43 @@
 <template>
-  <div class="name">
-    {{ name }}
-  </div>
-  <button class="btn btn-primary" v-on:click="updateName">
-    Click
-  </button>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link> |
+    <router-link to="/databinding/string">String</router-link> |
+    <router-link to="/databinding/html">Html</router-link> |
+    <router-link to="/databinding/input">Input</router-link> |
+    <router-link to="/databinding/select">Select</router-link> |
+    <router-link to="/databinding/checkbox">CheckBox</router-link> |
+    <router-link to="/databinding/radio">Radio</router-link> |
+    <router-link to="/databinding/attribute">Attribute</router-link> |
+    <router-link to="/databinding/list">List</router-link> |
+    <router-link to="/databinding/class">Class</router-link> |
+    <router-link to="/databinding/style">Style</router-link> |
+    <router-link to="/event/click">Counter</router-link> |
+    <router-link to="/event/change">Change</router-link> |
+    <router-link to="/event/key">Key</router-link>
+  </nav>
+  <router-view/>
 </template>
 
-
-
-<script>
-import { reactive } from "vue";
-
-export default {
-  setup() {
-    const name = reactive('softworks');
-
-    const greeting = (name) => {
-      return 'Hello, ' + name;
-    };
-
-    const greet = greeting(name);
-
-    const updateName = () => {
-      name.value = 'SW';
-      console.log(name);
-    };
-
-    return {
-      name,
-      greet,
-      updateName,
-    };
-  }
-}
-</script>
-
-
-
 <style>
-.name{
-  color: blue;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
